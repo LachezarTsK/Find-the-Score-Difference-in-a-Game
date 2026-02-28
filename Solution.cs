@@ -15,16 +15,16 @@ public class Solution
 
         for (int i = 0; i < scoresPerGame.Length; ++i)
         {
-            activePlayer = getNextActivePlayer(i, scoresPerGame[i], activePlayer);
+            activePlayer = GetNextActivePlayer(i, scoresPerGame[i], activePlayer);
             scoresPerPlayer[activePlayer] += scoresPerGame[i];
         }
         return scoresPerPlayer[PLAYER_ONE] - scoresPerPlayer[PLAYER_TWO];
     }
 
-    private static int getNextActivePlayer(int index, int scoreCurrentGame, int previousActivePlayer)
+    private static int GetNextActivePlayer(int index, int scoreCurrentGame, int previousActivePlayer)
     {
         int nextActivePlayer = previousActivePlayer;
-        if (isOdd(scoreCurrentGame))
+        if (IsOdd(scoreCurrentGame))
         {
             nextActivePlayer ^= 1;
         }
@@ -35,7 +35,7 @@ public class Solution
         return nextActivePlayer;
     }
 
-    private static bool isOdd(int value)
+    private static bool IsOdd(int value)
     {
         return value % 2 == 1;
     }
